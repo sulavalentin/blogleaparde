@@ -9,7 +9,7 @@ use App\Models\Comment;
 class CommentsController extends Controller
 {
     public function getcomments(){
-        $comments=Comment::select('comments.*','users.first_name','posts.title')
+        $comments=Comment::select('comments.*','users.username','posts.title')
                 ->leftJoin('users', 'users.id', '=', 'comments.user_id')
                 ->leftJoin('posts', 'posts.id', '=', 'comments.post_id')
                 ->orderby('comments.hidden')

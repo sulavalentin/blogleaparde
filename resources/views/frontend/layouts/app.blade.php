@@ -34,6 +34,7 @@
         </script>
     </head>
     <body id="app-layout">
+        
         <div id="app">
             @include('includes.partials.logged-in-as')
             @include('frontend.includes.nav')

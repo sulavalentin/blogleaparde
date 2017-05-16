@@ -30,7 +30,6 @@
                         </div><!--col-md-6-->
                     </div><!--form-group-->
                     
-                    
                     <div class="form-group">
                         {{ Form::label('username', 'Username',
                         ['class' => 'col-md-4 control-label']) }}

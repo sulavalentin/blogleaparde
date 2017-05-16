@@ -7,6 +7,8 @@ use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Http\Request;
 use Auth;
+Use Session;
+
 /**
  * Class FrontendController.
  */
@@ -17,6 +19,9 @@ class FrontendController extends Controller
      */
     public function index()
     {
+        if(Session::has('username')){
+            return view('frontend.auth.username');
+        }
         $posts=Post::paginate(5);
         return view('frontend.index',['posts'=>$posts]);
     }
@@ -27,7 +32,7 @@ class FrontendController extends Controller
         /*select similar posts*/
         $similar=Post::where("id","<>",$id)->inRandomOrder()->take(6)->get();
         /*get comments with user name*/
-        $comments=Comment::select('comments.*','users.first_name')
+        $comments=Comment::select('comments.*','users.username')
                 ->where('comments.post_id','=',$id)
                 ->where('comments.hidden','=',1)
                 ->Join('users','users.id','=','comments.user_id')

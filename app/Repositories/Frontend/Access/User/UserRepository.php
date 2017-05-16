@@ -92,7 +92,29 @@ class UserRepository extends BaseRepository
 
         throw new GeneralException(trans('auth.unknown'));
     }
+    protected function getFirstLastNames($fullName)
+    {
+        $parts = array_values(array_filter(explode(" ", $fullName)));
 
+        $size = count($parts);
+
+        if(empty($parts)){
+            $result['first_name']   = NULL;
+            $result['last_name']    = NULL;
+        }
+
+        if(!empty($parts) && $size == 1){
+            $result['first_name']   = $parts[0];
+            $result['last_name']    = NULL;
+        }
+
+        if(!empty($parts) && $size >= 2){
+            $result['first_name']   = $parts[0];
+            $result['last_name']    = $parts[1];
+        }
+
+        return $result;
+    }
     /**
      * @param array $data
      * @param bool  $provider
@@ -103,9 +125,14 @@ class UserRepository extends BaseRepository
     {
         $user = self::MODEL;
         $user = new $user;
+        if(!empty($data['name'])){
+            $data=$this->getFirstLastNames($data['name']);
+        }
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
-        $user->username = $data['username'];
+        if(!empty($data['username'])){
+            $user->username = $data['username'];
+        }
         $user->email = $data['email'];
         $user->confirmation_code = md5(uniqid(mt_rand(), true));
         $user->status = 1;
@@ -136,7 +163,35 @@ class UserRepository extends BaseRepository
          */
         return $user;
     }
+    protected function getFirstLastNamesBase($fullName,$result)
+    {
+        $parts = array_values(array_filter(explode(" ", $fullName)));
 
+        $size = count($parts);
+
+        if(empty($parts)){
+            $result->first_name   = NULL;
+            $result->last_name    = NULL;
+        }
+
+        if(!empty($parts) && $size == 1){
+            $result->first_name   = $parts[0];
+            $result->last_name    = NULL;
+        }
+
+        if(!empty($parts) && $size >= 2){
+            $result->first_name   = $parts[0];
+            $result->last_name   = $parts[1];
+        }
+
+        return $result;
+    }
+    protected function getFirstLastNamesBaseGoogle($fullName,$result)
+    {
+        $result->first_name   = $fullName['givenName'];
+        $result->last_name   = $fullName['familyName'];
+        return $result;
+    }
     /**
      * @param $data
      * @param $provider
@@ -162,7 +217,14 @@ class UserRepository extends BaseRepository
             if (! config('access.users.registration')) {
                 throw new GeneralException(trans('exceptions.frontend.auth.registration_disabled'));
             }
-
+            /*if name is string for facebook*/
+            if(!empty($data['name']) && ! is_array($data['name'])){
+                $data=$this->getFirstLastNamesBase($data['name'],$data);
+            }
+            /*if name is array for google*/
+            if(!empty($data['name']) &&  is_array($data['name'])){
+                $data=$this->getFirstLastNamesBaseGoogle($data['name'],$data);
+            }
             $user = $this->create([
                 'first_name'  => $data->first_name,
                 'last_name'  => $data->last_name,

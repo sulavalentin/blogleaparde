@@ -9,7 +9,9 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Events\Frontend\Auth\UserLoggedIn;
 use App\Repositories\Frontend\Access\User\UserRepository;
 use App\Helpers\Frontend\Auth\Socialite as SocialiteHelper;
-
+/*if have username*/
+use App\Models\Access\User\User;
+use Session;
 /**
  * Class SocialLoginController.
  */
@@ -79,7 +81,10 @@ class SocialLoginController extends Controller
         if (! $user->isActive()) {
             throw new GeneralException(trans('exceptions.frontend.auth.deactivated'));
         }
-
+        $username=User::where('id','=',$user->id)->first();
+        if($username->username==Null){
+            Session::put('username',$user->id);
+        }
         // User has been successfully created or already exists
         access()->login($user, true);
 
@@ -90,9 +95,10 @@ class SocialLoginController extends Controller
         session([config('access.socialite_session_name') => $provider]);
 
         // Return to the intended url or default to the class property
-        return redirect()->intended(route(homeRoute()));
+        return redirect('/');
     }
-
+    /*get username*/
+    
     /**
      * @param  $provider
      *

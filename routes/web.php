@@ -39,3 +39,6 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 Route::get('/admin',function(){
     return redirect("/admin/dashboard");
 });
+/*Set username*/
+Route::get('/getusername','Controller@getusername');
+Route::post('/postusername','Controller@postusername');
