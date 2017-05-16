@@ -29,7 +29,18 @@
                             ['class' => 'form-control', 'maxlength' => '191', 'required' => 'required', 'placeholder' => trans('validation.attributes.frontend.last_name')]) }}
                         </div><!--col-md-6-->
                     </div><!--form-group-->
-
+                    
+                    
+                    <div class="form-group">
+                        {{ Form::label('username', 'Username',
+                        ['class' => 'col-md-4 control-label']) }}
+                        <div class="col-md-6">
+                            {{ Form::text('username', null,
+                            ['class' => 'form-control', 'maxlength' => '191', 'required' => 'required', 'placeholder' => 'Username']) }}
+                        </div><!--col-md-6-->
+                    </div><!--form-group-->
+                    
+                    
                     <div class="form-group">
                         {{ Form::label('email', trans('validation.attributes.frontend.email'), ['class' => 'col-md-4 control-label']) }}
                         <div class="col-md-6">
@@ -65,7 +76,18 @@
                             {{ Form::submit(trans('labels.frontend.auth.register_button'), ['class' => 'btn btn-primary']) }}
                         </div><!--col-md-6-->
                     </div><!--form-group-->
-
+                    <div class="form-group" style='font-size:20px;'>
+                        <div class="col-md-6 col-md-offset-4">
+                            <a href='{{URL('login/facebook')}}'>
+                                <i class='fa fa-facebook'></i>
+                            </a> | 
+                            <a href='{{URL('login/google')}}'>
+                                <i class="fa fa-google"></i>
+                            </a>
+                            
+                        </div><!--col-md-6-->
+                    </div><!--form-group-->
+                    
                     {{ Form::close() }}
 
                 </div><!-- panel body -->
