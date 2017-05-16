@@ -22,8 +22,21 @@ class FrontendController extends Controller
     }
     public function post($id)
     {
+        /*select post*/
         $post=Post::where("id","=",$id)->first();
-        return view('frontend.post',['post'=>$post]);
+        /*select similar posts*/
+        $similar=Post::where("id","<>",$id)->inRandomOrder()->take(6)->get();
+        /*get comments with user name*/
+        $comments=Comment::select('comments.*','users.first_name')
+                ->where('comments.post_id','=',$id)
+                ->where('comments.hidden','=',1)
+                ->Join('users','users.id','=','comments.user_id')
+                ->orderBy("id","desc")
+                ->get();
+        /*return*/
+        return view("frontend.post",["post"=>$post,
+                            "similar"=>$similar,
+                            "comments"=>$comments]);
     }
     public function addcomment(Request $request){
         /*get data from ajax*/
@@ -35,12 +48,5 @@ class FrontendController extends Controller
         $comment->post_id=$id;
         $comment->comment=$comment_text;
         $comment->save();
-    }
-    /**
-     * @return \Illuminate\View\View
-     */
-    public function macros()
-    {
-        return view('frontend.macros');
     }
 }

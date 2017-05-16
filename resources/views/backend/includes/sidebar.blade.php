@@ -89,10 +89,16 @@
             </li>
             
             
-            <li class="{{ active_class(Active::checkUriPattern('admin/posts*')) }}">
-                <a href="{{ URL('admin/posts') }}">
+            <li class="{{ active_class(Active::checkUriPattern('admin/dashboard*')) }}">
+                <a href="{{ URL('admin/dashboard') }}">
                     <i class="fa fa-circle-o"></i>
                     <span>Posts</span>
+                </a>
+            </li>
+            <li class="{{ active_class(Active::checkUriPattern('admin/comments*')) }}">
+                <a href="{{ URL('admin/comments') }}">
+                    <i class="fa fa-circle-o"></i>
+                    <span>Comments</span>
                 </a>
             </li>
             

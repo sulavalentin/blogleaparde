@@ -200,6 +200,7 @@ return [
         App\Providers\HistoryServiceProvider::class,
         App\Providers\MacroServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
 
     ],
 

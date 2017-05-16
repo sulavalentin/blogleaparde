@@ -16,19 +16,25 @@
             </div><!-- /.box tools -->
         </div><!-- /.box-header -->
         <div class="box-body">
-            {!! trans('strings.backend.welcome') !!}
+            <a href="{{URL('admin/newpost')}}" class="btn btn-primary pull-right">Add new post</a>
+            <div class="clearfix" style='margin-bottom:15px;'></div>
+            @if(!empty($posts) && count($posts)>0)
+                @foreach($posts as $i)
+                <div class='content' style='width:100%; float:left; border'>
+                    <h2>{{$i->title}}</h2>
+                    <p>{!! str_limit(strip_tags($i->content), $limit = 1000, $end = '...') !!}</p>
+                    <p class='text-right'>{{date('d-m-Y H:i', strtotime($i->created_at))}}</p>
+                    <a href='{{URL("/post/".$i->id)}}' class='btn btn-default' target='_blank'>view</a>
+                    <a href='{{URL("/admin/edit/".$i->id)}}' class='btn btn-primary'>Edit</a>
+                    <a href='{{URL("/admin/delete/".$i->id)}}' class='btn btn-danger'>Delete</a>
+                </div>
+                @endforeach
+                {{$posts->links()}} 
+            @else
+            <h1>Nu sunt bloguri</h1>
+            @endif
+            
         </div><!-- /.box-body -->
     </div><!--box box-success-->
 
-    <div class="box box-info">
-        <div class="box-header with-border">
-            <h3 class="box-title">{{ trans('history.backend.recent_history') }}</h3>
-            <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            </div><!-- /.box tools -->
-        </div><!-- /.box-header -->
-        <div class="box-body">
-            {!! history()->render() !!}
-        </div><!-- /.box-body -->
-    </div><!--box box-success-->
 @endsection
