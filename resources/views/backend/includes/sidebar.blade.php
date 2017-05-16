@@ -87,6 +87,16 @@
                     </li>
                 </ul>
             </li>
+            
+            
+            <li class="{{ active_class(Active::checkUriPattern('admin/posts*')) }}">
+                <a href="{{ URL('admin/posts') }}">
+                    <i class="fa fa-circle-o"></i>
+                    <span>Posts</span>
+                </a>
+            </li>
+            
+            
         </ul><!-- /.sidebar-menu -->
     </section><!-- /.sidebar -->
 </aside>
