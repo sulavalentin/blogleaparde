@@ -6,12 +6,14 @@
  */
 Route::get('/', 'FrontendController@index')->name('index');
 Route::get('macros', 'FrontendController@macros')->name('macros');
+Route::get('/post/{id}', 'FrontendController@post');
 
 /*
  * These frontend controllers require the user to be logged in
  * All route names are prefixed with 'frontend.'
  */
 Route::group(['middleware' => 'auth'], function () {
+    Route::post('addcomment','FrontendController@addcomment');
     Route::group(['namespace' => 'User', 'as' => 'user.'], function () {
         /*
          * User Dashboard Specific

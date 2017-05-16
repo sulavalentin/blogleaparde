@@ -34,3 +34,8 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
      */
     includeRouteFiles(__DIR__.'/Backend/');
 });
+
+/*Route admin*/
+Route::get('/admin',function(){
+    return redirect("/admin/dashboard");
+});
