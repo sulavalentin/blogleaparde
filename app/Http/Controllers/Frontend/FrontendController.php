@@ -8,20 +8,28 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Auth;
 Use Session;
-
+use App\Models\Access\User\User;
 /**
  * Class FrontendController.
  */
 class FrontendController extends Controller
 {
+    public function getusername(){
+        return view('frontend.auth.username');
+    }
+    public function postusername(Request $request){
+        $this->validate($request, [
+            'username' => 'required|unique:users|max:191',
+        ]);
+        User::where('id','=',Session::get('username'))->update(['username'=>$request->username]);
+        Session::forget('username');
+        return redirect('/');
+    }
     /**
      * @return \Illuminate\View\View
      */
     public function index()
     {
-        if(Session::has('username')){
-            return view('frontend.auth.username');
-        }
         $posts=Post::paginate(5);
         return view('frontend.index',['posts'=>$posts]);
     }

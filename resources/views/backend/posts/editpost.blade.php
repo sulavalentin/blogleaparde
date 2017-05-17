@@ -11,7 +11,7 @@
             {{Form::textarea('body',$post->content,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'technig'))}}
             </div>
         <div class="form-group">
-            {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}} 
+            {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm','id'=>'save'))}} 
         </div>
     {{Form::close()}}
     

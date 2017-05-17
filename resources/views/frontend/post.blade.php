@@ -80,7 +80,7 @@
                 @if(!empty($comments) && count($comments)>0)
                     @foreach($comments as $i)
                         <li>
-                            <b>{{$i->name}}</b><br>
+                            <b>{{$i->username}}</b><br>
                             {{$i->comment}}
                             <p class='text-right'>{{$i->created_at}}</p>
                         </li>

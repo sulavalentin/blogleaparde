@@ -82,8 +82,10 @@
                             </a> | 
                             <a href='{{URL('login/google')}}'>
                                 <i class="fa fa-google"></i>
+                            </a> |
+                            <a href='{{URL('login/github')}}'>
+                                <i class="fa fa-github"></i>
                             </a>
-                            
                         </div><!--col-md-6-->
                     </div><!--form-group-->
                     

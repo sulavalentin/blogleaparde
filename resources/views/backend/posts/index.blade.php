@@ -10,7 +10,7 @@
         {{Form::textarea('body',null,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'technig'))}}
         </div>
         <div class="form-group">
-            {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm'))}} 
+            {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm','id'=>'save'))}} 
         </div>
     {{Form::close()}}
     
@@ -40,7 +40,6 @@
                             },
                         success: function() {
                             location.href="{{URL('/admin')}}";
-                            $("#save").button("reset");
                         },
                         error:function(){
                             $("#save").button("reset");

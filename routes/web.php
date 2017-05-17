@@ -9,7 +9,6 @@
 Route::get('lang/{lang}', 'LanguageController@swap');
 
 /* ----------------------------------------------------------------------- */
-
 /*
  * Frontend Routes
  * Namespaces indicate folder structure
@@ -40,5 +39,5 @@ Route::get('/admin',function(){
     return redirect("/admin/dashboard");
 });
 /*Set username*/
-Route::get('/getusername','Controller@getusername');
-Route::post('/postusername','Controller@postusername');
+Route::get('/getusername','Frontend\FrontendController@getusername');
+Route::post('/postusername','Frontend\FrontendController@postusername');

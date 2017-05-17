@@ -44,7 +44,6 @@
                             {{ link_to_route('frontend.auth.password.reset', trans('labels.frontend.passwords.forgot_password')) }}
                         </div><!--col-md-6-->
                     </div><!--form-group-->
-
                     {{ Form::close() }}
 
                     <div class="row text-center">

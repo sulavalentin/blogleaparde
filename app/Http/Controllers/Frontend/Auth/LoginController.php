@@ -10,6 +10,7 @@ use App\Helpers\Frontend\Auth\Socialite;
 use App\Events\Frontend\Auth\UserLoggedIn;
 use App\Events\Frontend\Auth\UserLoggedOut;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Session;
 
 /**
  * Class LoginController.
@@ -94,14 +95,14 @@ class LoginController extends Controller
          * Fire event, Log out user, Redirect
          */
         event(new UserLoggedOut($this->guard()->user()));
-
+        
         /*
          * Laravel specific logic
          */
         $this->guard()->logout();
         $request->session()->flush();
         $request->session()->regenerate();
-
+        
         return redirect('/');
     }
 
