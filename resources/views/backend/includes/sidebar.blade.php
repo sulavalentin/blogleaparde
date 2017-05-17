@@ -90,13 +90,13 @@
             
             
             <li class="{{ active_class(Active::checkUriPattern('admin/dashboard*')) }}">
-                <a href="{{ URL('admin/dashboard') }}">
+                <a href="{{ route('admin.dashboard') }}">
                     <i class="fa fa-circle-o"></i>
                     <span>Posts</span>
                 </a>
             </li>
             <li class="{{ active_class(Active::checkUriPattern('admin/comments*')) }}">
-                <a href="{{ URL('admin/comments') }}">
+                <a href="{{ route('admin.comments') }}">
                     <i class="fa fa-circle-o"></i>
                     <span>Comments</span>
                 </a>

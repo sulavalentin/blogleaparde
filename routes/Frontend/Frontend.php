@@ -6,7 +6,7 @@
  */
 Route::group(['middleware' => ['controlusername']], function () {
     Route::get('/', 'FrontendController@index')->name('index');
-    Route::get('/post/{id}', 'FrontendController@post');
+    Route::get('/post/{id}', 'FrontendController@post')->name('post');
 });
 /*
  * These frontend controllers require the user to be logged in
