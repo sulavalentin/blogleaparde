@@ -22,7 +22,7 @@
                 @foreach($posts as $i)
                 <div class='content' style='width:100%; float:left; border'>
                     <h2>{{$i->title}}</h2>
-                    <p>{!! str_limit(strip_tags($i->content), $limit = 1000, $end = '...') !!}</p>
+                    <p>{{ str_limit(strip_tags($i->content), Config::get('constants.limit_worlds_posts'), Config::get('constants.end')) }}</p>
                     <p class='text-right'>{{date('d-m-Y H:i', strtotime($i->created_at))}}</p>
                     {{ link_to_route('frontend.post', trans('buttons.general.crud.view'), [$i->id], ['class' => 'btn btn-default','target'=>'_blank' ]) }}
                     {{ link_to_route('admin.edit.get', trans('buttons.general.crud.edit'), [$i->id], ['class' => 'btn btn-primary' ]) }}
