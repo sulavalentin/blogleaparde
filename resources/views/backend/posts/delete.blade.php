@@ -7,8 +7,8 @@
             <h1 class="text-center">{{$post->title}}</h1>
             <form method="post" action="{{URL('admin/delete/'.$post->id)}}" class="text-center">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <button type="submit" class="btn btn-default">Da</button>
-                <a href="{{URL("/admin")}}" class="btn btn-primary">Nu</a>
+                <button type="submit" class="btn btn-default">{{trans('labels.general.yes')}}</button>
+                <a href="{{URL("/admin")}}" class="btn btn-primary">{{trans('labels.general.no')}}</a>
             </form>
         @endif
     </div>

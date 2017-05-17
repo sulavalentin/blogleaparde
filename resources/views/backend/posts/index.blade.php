@@ -10,7 +10,7 @@
         {{Form::textarea('body',null,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'technig'))}}
         </div>
         <div class="form-group">
-            {{Form::submit('Publish Post',array('class' => 'btn btn-primary btn-sm','id'=>'save'))}} 
+            {{Form::submit(trans('buttons.general.save'),array('class' => 'btn btn-primary btn-sm','id'=>'save'))}} 
         </div>
     {{Form::close()}}
     
