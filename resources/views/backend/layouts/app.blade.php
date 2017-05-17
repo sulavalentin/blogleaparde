@@ -46,7 +46,6 @@
         <div class="wrapper">
             @include('backend.includes.header')
             @include('backend.includes.sidebar')
-
             <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
@@ -71,5 +70,10 @@
         @yield('before-scripts')
         {{ Html::script(mix('js/backend.js')) }}
         @yield('after-scripts')
+        <script>
+            $('.dropdown-menu').click(function (e) {
+                e.stopPropagation();
+            });
+        </script>
     </body>
 </html>
