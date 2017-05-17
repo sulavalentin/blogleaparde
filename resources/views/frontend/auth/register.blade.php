@@ -75,21 +75,12 @@
                             {{ Form::submit(trans('labels.frontend.auth.register_button'), ['class' => 'btn btn-primary']) }}
                         </div><!--col-md-6-->
                     </div><!--form-group-->
-                    <div class="form-group" style='font-size:20px;'>
-                        <div class="col-md-6 col-md-offset-4">
-                            <a href='{{URL('login/facebook')}}'>
-                                <i class='fa fa-facebook'></i>
-                            </a> | 
-                            <a href='{{URL('login/google')}}'>
-                                <i class="fa fa-google"></i>
-                            </a> |
-                            <a href='{{URL('login/github')}}'>
-                                <i class="fa fa-github"></i>
-                            </a>
-                        </div><!--col-md-6-->
-                    </div><!--form-group-->
                     
                     {{ Form::close() }}
+                    
+                    <div class="row text-center" style='margin-top:15px;'>
+                        {!! $socialite_links !!}
+                    </div>
 
                 </div><!-- panel body -->
 
