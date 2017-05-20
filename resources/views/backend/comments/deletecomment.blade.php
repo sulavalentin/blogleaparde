@@ -1,7 +1,7 @@
 @extends('backend.layouts.app')
 
 @section('content')
-    <div class="container" style='color:black;'>
+    <div class="container">
         @if(!empty($comment) && count($comment)>0)
             <h1 class="text-center">Sigur doresti sa stergi acest comentariu?</h1>
             <h1 class="text-center">{{$comment->comment}}</h1>

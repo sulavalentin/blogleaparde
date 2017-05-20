@@ -23,7 +23,7 @@
         @else
             {{ Html::style(mix('css/frontend.css')) }}
         @endif
-
+        {{ Html::style('css/style.css') }}
         @yield('after-styles')
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <!-- Scripts -->

@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
 
-                    <form action="{{URL('/postusername')}}" method="post" id="save">
+                    <form action="{{route('username.post')}}" method="post" id="save">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <div class="form-group">
                             <label class='col-md-4 control-label'>Username</label>

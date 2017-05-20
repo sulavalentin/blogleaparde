@@ -40,4 +40,4 @@ Route::get('/admin',function(){
 });
 /*Set username*/
 Route::get('/getusername','Frontend\FrontendController@getusername');
-Route::post('/postusername','Frontend\FrontendController@postusername');
+Route::post('/username','Frontend\FrontendController@postusername')->name('username.post');

@@ -38,7 +38,7 @@ class FrontendController extends Controller
         /*select post*/
         $post=Post::where("id","=",$id)->first();
         /*select similar posts*/
-        $similar=Post::where("id","<>",$id)->inRandomOrder()->take(6)->get();
+        $similars=Post::where("id","<>",$id)->inRandomOrder()->take(6)->get();
         /*get comments with user name*/
         $comments=Comment::select('comments.*','users.username')
                 ->where('comments.post_id','=',$id)
@@ -48,7 +48,7 @@ class FrontendController extends Controller
                 ->get();
         /*return*/
         return view("frontend.post",["post"=>$post,
-                            "similar"=>$similar,
+                            "similars"=>$similars,
                             "comments"=>$comments]);
     }
     public function addcomment(Request $request){

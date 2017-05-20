@@ -17,16 +17,16 @@
         </div><!-- /.box-header -->
         <div class="box-body">
             {{ link_to_route('admin.newpost', trans('buttons.general.crud.create'), [], ['class' => 'btn btn-primary pull-right' ]) }}
-            <div class="clearfix" style='margin-bottom:15px;'></div>
+            <div class="clearfix"></div>
             @if(!empty($posts) && count($posts)>0)
-                @foreach($posts as $i)
-                <div class='content' style='width:100%; float:left; border'>
-                    <h2>{{$i->title}}</h2>
-                    <p>{{ str_limit(strip_tags($i->content), Config::get('constants.limit_worlds_posts'), Config::get('constants.end')) }}</p>
-                    <p class='text-right'>{{date('d-m-Y H:i', strtotime($i->created_at))}}</p>
-                    {{ link_to_route('frontend.post', trans('buttons.general.crud.view'), [$i->id], ['class' => 'btn btn-default','target'=>'_blank' ]) }}
-                    {{ link_to_route('admin.edit.get', trans('buttons.general.crud.edit'), [$i->id], ['class' => 'btn btn-primary' ]) }}
-                    {{ link_to_route('admin.delete.get', trans('buttons.general.crud.delete'), [$i->id], ['class' => 'btn btn-danger' ]) }}
+                @foreach($posts as $post)
+                <div class='content posts_items'>
+                    <h2>{{$post->title}}</h2>
+                    <p>{{ str_limit(strip_tags($post->content), limit_worlds_posts, end) }}</p>
+                    <p class='text-right'>{{date('d-m-Y H:i', strtotime($post->created_at))}}</p>
+                    {{ link_to_route('frontend.post', trans('buttons.general.crud.view'), [$post->id], ['class' => 'btn btn-default','target'=>'_blank' ]) }}
+                    {{ link_to_route('admin.edit.get', trans('buttons.general.crud.edit'), [$post->id], ['class' => 'btn btn-primary' ]) }}
+                    {{ link_to_route('admin.delete.get', trans('buttons.general.crud.delete'), [$post->id], ['class' => 'btn btn-danger' ]) }}
                 </div>
                 @endforeach
                 {{$posts->links()}} 

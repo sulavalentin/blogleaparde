@@ -1,29 +1,18 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-<style>
-    #comment_list{
-        list-style-type:none;
-        padding:0px;
-        margin-top:15px;
-    }
-    #comment_list li{
-        border-bottom:1px solid gray;
-        padding:5px;
-    }
-</style>
 <div class="container">
     <div class="row">
         @if(!empty($post) && count($post)>0)
-            <h1 style="border-bottom: 1px solid gray;">{{$post->title}}</h1>
+            <h1 class="post_title">{{$post->title}}</h1>
             {!! $post->content !!}
-            <p class='text-right'>Creat {{date('d-m-Y', strtotime($post->created_at))}}</p>
-            @if(!empty($similar) && count($similar)>0)
+            <p class='text-right'>{{trans('labels.backend.access.users.table.created')}} {{date('d-m-Y', strtotime($post->created_at))}}</p>
+            @if(!empty($similars) && count($similars)>0)
                 <h3>Bloguri similare</h3>
-                <ul style="list-style-type:none; padding:0px;">
-                    @foreach($similar as $i)
+                <ul class="similars">
+                    @foreach($similars as $similar)
                     <li>
-                        <a href="{{URL("/post/".$i->id)}}">{{$i->title}}</a>
+                        {{link_to_route('frontend.post',$similar->title,[$similar->id],[])}}
                     </li>
                     @endforeach
                 </ul>
@@ -38,7 +27,7 @@
                 @endif
                 for comments
             @else
-                <form method="post" action="{{URL('addcomment')}}" name="comments">
+                <form method="post" action="{{route('frontend.addcomment.post')}}" name="comments">
                     <textarea name="comment" class="form-control"></textarea>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">Comenteaza</button>
@@ -55,7 +44,7 @@
                                 $("button[name=submit]").button("loading");
                                 $.ajax({
                                     type:"post",
-                                    url:"{{URL('addcomment')}}",
+                                    url:"{{route('frontend.addcomment.post')}}",
                                     data:{
                                         _token:"{{csrf_token()}}",
                                         comment:comment,
@@ -78,11 +67,11 @@
   
             <ul id="comment_list">
                 @if(!empty($comments) && count($comments)>0)
-                    @foreach($comments as $i)
+                    @foreach($comments as $comment)
                         <li>
-                            <b>{{$i->username}}</b><br>
-                            {{$i->comment}}
-                            <p class='text-right'>{{$i->created_at}}</p>
+                            <b>{{$comment->username}}</b><br>
+                            {{$comment->comment}}
+                            <p class='text-right'>{{$comment->created_at}}</p>
                         </li>
                     @endforeach
                 @endif

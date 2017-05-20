@@ -13,7 +13,7 @@ Route::group(['middleware' => ['controlusername']], function () {
  * All route names are prefixed with 'frontend.'
  */
 Route::group(['middleware' => 'auth'], function () {
-    Route::post('addcomment','FrontendController@addcomment');
+    Route::post('addcomment','FrontendController@addcomment')->name('addcomment.post');
     Route::group(['namespace' => 'User', 'as' => 'user.'], function () {
         /*
          * User Dashboard Specific

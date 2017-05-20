@@ -32,7 +32,7 @@
                     $("#save").button("loading");
                     $.ajax({  
                         type: 'POST',  
-                        url: "{{URL('/admin/edit')}}", 
+                        url: "{{route('admin.edit.post')}}", 
                         data: 
                             { 
                                 _token: "{{ csrf_token() }}",
@@ -41,7 +41,7 @@
                                 id:"{{$post->id}}"
                             },
                         success: function(){
-                            location.href="{{URL('/admin')}}";
+                            location.href="{{route('admin.dashboard')}}";
                             $("#save").button("reset");
                         },
                         error:function(){

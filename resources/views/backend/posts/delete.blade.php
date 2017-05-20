@@ -5,7 +5,7 @@
         @if(!empty($post) && count($post)>0)
             <h1 class="text-center">Sigur doresti sa stergi acest post?</h1>
             <h1 class="text-center">{{$post->title}}</h1>
-            <form method="post" action="{{URL('admin/delete/'.$post->id)}}" class="text-center">
+            <form method="post" action="{{route('admin.delete.post',[$post->id])}}" class="text-center">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <button type="submit" class="btn btn-default">{{trans('labels.general.yes')}}</button>
                 <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">{{trans('labels.general.no')}}</a>
