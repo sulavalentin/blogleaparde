@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         @if(!empty($comment) && count($comment)>0)
-            <h1 class="text-center">Sigur doresti sa stergi acest comentariu?</h1>
+            <h1 class="text-center">{{trans('buttons.backend.access.users.delete_permanently')}} ?</h1>
             <h1 class="text-center">{{$comment->comment}}</h1>
             <form method="post" action="{{route('admin.deletecomment.post',[$comment->id])}}" class="text-center">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

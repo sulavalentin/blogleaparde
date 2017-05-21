@@ -15,7 +15,7 @@
             {{$posts->links()}}
             @endforeach
         @else
-            <h1 class='text-center'>Nu sunt bloguri</h1>
+        <h1>{{trans('others.empty')}}</h1>
         @endif
     </div>
 @endsection

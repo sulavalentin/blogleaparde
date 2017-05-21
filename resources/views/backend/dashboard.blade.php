@@ -30,8 +30,6 @@
                 </div>
                 @endforeach
                 {{$posts->links()}} 
-            @else
-            <h1>Nu sunt bloguri</h1>
             @endif
             
         </div><!-- /.box-body -->

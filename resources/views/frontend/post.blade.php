@@ -8,7 +8,6 @@
             {!! $post->content !!}
             <p class='text-right'>{{trans('labels.backend.access.users.table.created')}} {{date('d-m-Y', strtotime($post->created_at))}}</p>
             @if(!empty($similars) && count($similars)>0)
-                <h3>Bloguri similare</h3>
                 <ul class="similars">
                     @foreach($similars as $similar)
                     <li>
@@ -17,20 +16,18 @@
                     @endforeach
                 </ul>
             @endif
-            <h3>Comentarii</h3>
+            <h3>{{trans('others.comments')}}</h3>
             
             @if (! $logged_in_user)
                 {{ link_to_route('frontend.auth.login', trans('navs.frontend.login'), [], ['class' => active_class(Active::checkRoute('frontend.auth.login')) ]) }}
-                or
                 @if (config('access.users.registration'))
                     {{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}
                 @endif
-                for comments
             @else
                 <form method="post" action="{{route('frontend.addcomment.post')}}" name="comments">
                     <textarea name="comment" class="form-control"></textarea>
                     <br>
-                    <button type="submit" name="submit" class="btn btn-primary">Comenteaza</button>
+                    <button type="submit" name="submit" class="btn btn-primary">{{ trans('buttons.general.crud.create') }}</button>
                 </form>
                 <!--script add comments -->
                 <script>
@@ -64,7 +61,6 @@
                     });
                 </script>
             @endif
-  
             <ul id="comment_list">
                 @if(!empty($comments) && count($comments)>0)
                     @foreach($comments as $comment)
@@ -75,9 +71,9 @@
                         </li>
                     @endforeach
                 @endif
-             </ul>       
+             </ul> 
         @else
-            <h1 class='text-center'>Acest blog nu exista</h1>
+        <h1>{{trans('others.empty')}}</h1>
         @endif
     </div>
 </div>

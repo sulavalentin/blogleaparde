@@ -3,11 +3,9 @@
 @if(!empty($post) && count($post)>0)
     {{Form::open(['id'=>'formeditor'])}}
         <div class="form-group">
-            {{Form::label('title', 'Title')}}
             {{Form::text('title',$post->title,array('class' => 'form-control', 'placeholder'=>'Title','id'=>'title'))}}
         </div>
         <div class="form-group">
-            {{Form::label('body', 'Content')}}
             {{Form::textarea('body',$post->content,array('class' => 'form-control', 'placeholder'=>'Content', 'id' => 'technig'))}}
             </div>
         <div class="form-group">
@@ -54,6 +52,6 @@
         });
     </script>
 @else
-    <h1>Nu exista acest post</h1>
+    <h1>{{trans('strings.emails.auth.error')}}</h1>
 @endif
 @endsection

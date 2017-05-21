@@ -39,7 +39,7 @@
         },
         "files": [
             "app/helpers.php",
-            "config/constants.php"
+            "app/constants.php"
         ]
     },
     "autoload-dev": {
