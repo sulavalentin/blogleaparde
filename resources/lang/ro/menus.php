@@ -23,7 +23,7 @@ return [
                 'main'          => 'Roluri',
                 'management'    => 'Manipularea drepturilor',
             ],
-            'title' => 'Управление',
+            'title' => 'Control',
             'users' => [
                 'all'               => 'Toti utilizatorii',
                 'change-password'   => 'Modifica parola',
