@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'password' => 'Пароль должен быть не менее шести символов и совпадать с подтверждением.',
-    'reset'    => 'Ваш пароль был сброшен!',
-    'sent'     => 'Ссылка на сброс пароля была отправлена!',
-    'token'    => 'Ошибочный код сброса пароля.',
-    'user'     => 'Не удалось найти пользователя с указанным электронным адресом.',
+    'password' => 'Parola trebuie sa aiba minim 6 caractere si trebuie sa corespunda.',
+    'reset'    => 'Parola dvs a fost resetata!',
+    'sent'     => 'Linkul pentru resetarea parolei a fost trimis!',
+    'token'    => 'Token gresit.',
+    'user'     => 'Nu sa gasit utilizator cu acest email.',
 
 ];

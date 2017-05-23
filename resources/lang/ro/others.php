@@ -7,7 +7,7 @@
  */
 
 return [
-    'empty'=>'Пусто',
-    'posts'=>'Блог',
-    'comments'=>'Коментарии',
+    'empty'=>'Gol',
+    'posts'=>'Blog',
+    'comments'=>'Comentarii',
 ];

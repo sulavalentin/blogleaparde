@@ -63,6 +63,7 @@ return [
             'nl'    => 'Голландский (Dutch)',
             'pt_BR' => 'Бразильский Португальский (Brazilian Portuguese)',
             'ru'    => 'Русский (Russian)',
+            'ro'    => '(Romanian)',
             'sv'    => 'Шведский (Swedish)',
             'th'    => 'Тайский (Thai)',
         ],

@@ -15,11 +15,11 @@ return [
     */
 
     '404'   => [
-        'description'   => 'Извините, но страница, которую вы пытаетесь просмотреть, не существует.',
-        'title'         => 'Страница не найдена',
+        'description'   => 'Aceasta pagina nu exista.',
+        'title'         => 'Pagina inexistenta',
     ],
     '503'   => [
-        'description'   => 'Назад',
-        'title'         => 'Назад',
+        'description'   => 'Inapoi',
+        'title'         => 'Inapoi',
     ],
 ];

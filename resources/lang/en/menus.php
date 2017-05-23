@@ -74,6 +74,7 @@ return [
             'nl'    => 'Dutch',
             'pt_BR' => 'Brazilian Portuguese',
             'ru'    => 'Russian',
+            'ro'    => 'Romanian',
             'sv'    => 'Swedish',
             'th'    => 'Thai',
         ],

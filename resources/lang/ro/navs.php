@@ -15,20 +15,20 @@ return [
     */
 
     'frontend'  => [
-        'dashboard' => 'Панель пользователя',
-        'login'     => 'Вход',
-        'macros'    => 'Макросы',
-        'register'  => 'Регистрация',
+        'dashboard' => 'Panelul utilizatorului',
+        'login'     => 'Login',
+        'macros'    => 'Macros',
+        'register'  => 'Inregistrare',
         'user'      => [
-            'account'           => 'Профиль, настройки',
-            'administration'    => 'Управление приложением',
-            'change_password'   => 'Изменить пароль',
-            'my_information'    => 'Моя информация',
-            'profile'           => 'Профиль',
+            'account'           => 'Profil,Setari',
+            'administration'    => 'Manipularea aplicatiilor',
+            'change_password'   => 'Modifica parola',
+            'my_information'    => 'Informatia mea',
+            'profile'           => 'Profil',
         ],
     ],
     'general'   => [
-        'home'      => 'Home',
-        'logout'    => 'Выход',
+        'home'      => 'Acasa',
+        'logout'    => 'Iesire',
     ],
 ];

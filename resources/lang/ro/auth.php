@@ -14,11 +14,11 @@ return [
     |
     */
 
-    'failed'        => 'Имя пользователя и пароль не совпадают.',
-    'general_error' => 'У вас нет прав для просмотра этой страницы.',
+    'failed'        => 'Login sau parola gresita.',
+    'general_error' => 'Nu aveti dreptul sa intrati in aceastsa pagina.',
     'socialite'     => [
-        'unacceptable'  => ':provider не приемлемый тип для входа.',
+        'unacceptable'  => ':provider neaceptat pentru intrare.',
     ],
-    'throttle'      => 'Слишком много попыток входа. Пожалуйста, попробуйте еще раз через :seconds секунд.',
-    'unknown'       => 'Упс..., произошла неизвестная ошибка',
+    'throttle'      => 'Prea multe incercari.Va rugam sa incercati peste :seconds secunde.',
+    'unknown'       => 'Ups ... a aparut o eroare necunoscuta',
 ];

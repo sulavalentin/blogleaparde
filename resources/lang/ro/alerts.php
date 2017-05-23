@@ -16,19 +16,19 @@ return [
 
     'backend'   => [
         'roles' => [
-            'created'   => 'Новая роль создана.',
-            'deleted'   => 'Роль удалена.',
-            'updated'   => 'Роль обновлена.',
+            'created'   => 'Noul rol a fost creat.',
+            'deleted'   => 'Rolul a fost sters.',
+            'updated'   => 'Rol modificat.',
         ],
         'users' => [
-            'confirmation_email'    => 'Новые параметры для подтверждения отправлены на Ваш E-mail.',
-            'created'               => 'Новый пользователь создан.',
-            'deleted'               => 'Пользователь удален.',
-            'deleted_permanently'   => 'Пользователь удален навсегда.',
-            'restored'              => 'Пользователь восстановлен.',
+            'confirmation_email'    => 'Parametri noi pentru verificare au fost trimisi pe E-mail.',
+            'created'               => 'Utilizatorul nou a fost creat.',
+            'deleted'               => 'Utilizator sters.',
+            'deleted_permanently'   => 'Utilizatorul a fost sters pe tot deauna.',
+            'restored'              => 'Utilizatorul a fost reinitializat.',
             'session_cleared'      => "The user's session was successfully cleared.",
-            'updated'               => 'Параметры пользователя обновлены.',
-            'updated_password'      => 'Пароль пользователя обновлен.',
+            'updated'               => 'Parametri utilizatorului au fost modificate.',
+            'updated_password'      => 'Parola utilizatorului a fost modificata.',
         ],
     ],
 ];
