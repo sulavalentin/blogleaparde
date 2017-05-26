@@ -22,7 +22,7 @@
                 @foreach($posts as $post)
                 <div class='content posts-items'>
                     <h2>{{$post->title}}</h2>
-                    <p>{{ str_limit(strip_tags($post->content), limit_worlds_posts, end) }}</p>
+                    <p>{{ str_limit(strip_tags($post->content), LIMIT_WORLDs_POSTS, END) }}</p>
                     <p class='text-right'>{{date('d-m-Y H:i', strtotime($post->created_at))}}</p>
                     {{ link_to_route('frontend.post', trans('buttons.general.crud.view'), [$post->id], ['class' => 'btn btn-default','target'=>'_blank' ]) }}
                     {{ link_to_route('admin.edit.get', trans('buttons.general.crud.edit'), [$post->id], ['class' => 'btn btn-primary' ]) }}

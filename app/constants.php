@@ -1,5 +1,5 @@
 <?php
 
-if (!defined('limit_worlds_posts')) define('limit_worlds_posts',  1000);
+if (!defined('LIMIT_WORLDs_POSTS')) define('LIMIT_WORLDs_POSTS',  1000);
 
-if (!defined('end')) define('end',  '...');
+if (!defined('END')) define('END',  '...');
