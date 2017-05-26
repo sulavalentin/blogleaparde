@@ -20,7 +20,7 @@
             <div class="clearfix"></div>
             @if(!empty($posts) && count($posts)>0)
                 @foreach($posts as $post)
-                <div class='content posts_items'>
+                <div class='content posts-items'>
                     <h2>{{$post->title}}</h2>
                     <p>{{ str_limit(strip_tags($post->content), limit_worlds_posts, end) }}</p>
                     <p class='text-right'>{{date('d-m-Y H:i', strtotime($post->created_at))}}</p>

@@ -4,17 +4,17 @@
     <div class="container">
         @if(!empty($comments) && count($comments)>0)
             @foreach($comments as $i)
-            <div class='content comments_content'>
+            <div class='content comments-content'>
                 <h2>{{$i->title}}</h2>
                 <h3>{{$i->comment}}</h3>
                 <p>{{date('d-m-Y H:i', strtotime($i->created_at))}}</p>
                 @if($i->hidden==false)
-                    <form method="post" action="{{route("admin.acceptcomment.post",[$i->id])}}" class="btn_commnets_accept_refuse">
+                    <form method="post" action="{{route("admin.acceptcomment.post",[$i->id])}}" class="btn-commnets-accept-refuse">
                         <input type="hidden" value="{{ csrf_token() }}" name="_token"/>
                         <button type="submit" class='btn btn-primary'>{{trans('buttons.backend.access.users.activate')}}</button>
                     </form>
                 @else
-                    <form method="post" action="{{route("admin.refusecomment.post",[$i->id])}}" class="btn_commnets_accept_refuse">
+                    <form method="post" action="{{route("admin.refusecomment.post",[$i->id])}}" class="btn-commnets-accept-refuse">
                         <input type="hidden" value="{{ csrf_token() }}" name="_token"/>
                         <button type="submit" class='btn btn-default'>{{trans('buttons.backend.access.users.deactivate')}}</button>
                     </form>

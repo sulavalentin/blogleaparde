@@ -68,6 +68,9 @@
         </div><!-- ./wrapper -->
 
         <!-- JavaScripts -->
+        <script src="{{asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+        <script src="{{asset('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}"></script>
+        {!! Html::script('js/myjsbackend.js') !!}
         @yield('before-scripts')
         {{ Html::script(mix('js/backend.js')) }}
         @yield('after-scripts')

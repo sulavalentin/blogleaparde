@@ -1,7 +1,8 @@
 @extends ('backend.layouts.app')
 @section('content')
 @if(!empty($post) && count($post)>0)
-    {{Form::open(['id'=>'formeditor'])}}
+    {{Form::open(['id'=>'formeditormod','route'=>'admin.edit.post','back'=>route('admin.dashboard'),'idpost'=>$post->id])}}
+        <input type="hidden" name="_token" value="{{csrf_token()}}"/>
         <div class="form-group">
             {{Form::text('title',$post->title,array('class' => 'form-control', 'placeholder'=>'Title','id'=>'title'))}}
         </div>
@@ -12,45 +13,6 @@
             {{Form::submit(trans('buttons.general.crud.update'),array('class' => 'btn btn-primary btn-sm','id'=>'save'))}} 
         </div>
     {{Form::close()}}
-    
-    <script src="{{asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
-    <script src="{{asset('/vendor/unisharp/laravel-ckeditor/adapters/jquery.js') }}"></script>
-    <script>
-        $('textarea').ckeditor();
-        $("body").on('submit','#formeditor',function(e){
-            e.preventDefault();
-            var title=$("#title").val();
-            var content = CKEDITOR.instances.technig.getData();
-            if(title.length<2){
-                $("#title").focus();
-            }else{
-                if(content.length<2 ){
-                    CKEDITOR.instances.technig.focus();
-                }else{
-                    $("#save").button("loading");
-                    $.ajax({  
-                        type: 'POST',  
-                        url: "{{route('admin.edit.post')}}", 
-                        data: 
-                            { 
-                                _token: "{{ csrf_token() }}",
-                                title:title,
-                                content:content,
-                                id:"{{$post->id}}"
-                            },
-                        success: function(){
-                            location.href="{{route('admin.dashboard')}}";
-                            $("#save").button("reset");
-                        },
-                        error:function(){
-                            $("#save").button("reset");
-                            alert('a aparut o eroare');
-                        }
-                    });
-                }
-            }
-        });
-    </script>
 @else
     <h1>{{trans('strings.emails.auth.error')}}</h1>
 @endif

@@ -8,38 +8,38 @@ and open the template in the editor.
     Author     : valintin
 */
 
-.posts_items{
+.posts-items{
     width:100%; 
     float:left; 
     margin-bottom:15px; 
     border-bottom:1px solid gray; 
     padding-bottom:15px;
 }
-.posts_items .posts_content{
+.posts-items .posts-content{
     margin-top:15px;
 }
-.post_title{
+.post-title{
     border-bottom: 1px solid gray;
 }
 .similars{
     list-style-type:none; padding:0px;
 }
-#comment_list{
+#comment-list{
     list-style-type:none;
     padding:0px;
     margin-top:15px;
 }
-#comment_list li{
+#comment-list li{
     border-bottom:1px solid gray;
     padding:5px;
 }
-.comments_content{
+.comments-content{
     width:100%; 
     float:left; 
     border-bottom:1px solid gray; 
     padding-bottom:10px;
 }
-.btn_commnets_accept_refuse{
+.btn-commnets-accept-refuse{
     float:left; 
     margin-right: 5px;
 }

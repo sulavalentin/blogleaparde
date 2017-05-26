@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         @if(!empty($post) && count($post)>0)
-            <h1 class="post_title">{{$post->title}}</h1>
+            <h1 class="post-title">{{$post->title}}</h1>
             {!! $post->content !!}
             <p class='text-right'>{{trans('labels.backend.access.users.table.created')}} {{date('d-m-Y', strtotime($post->created_at))}}</p>
             @if(!empty($similars) && count($similars)>0)
@@ -24,44 +24,14 @@
                     {{ link_to_route('frontend.auth.register', trans('navs.frontend.register'), [], ['class' => active_class(Active::checkRoute('frontend.auth.register')) ]) }}
                 @endif
             @else
-                <form method="post" action="{{route('frontend.addcomment.post')}}" name="comments">
+                <form method="post" action="{{route('frontend.addcomment.post')}}" name="comments" postid="{{$post->id}}">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                     <textarea name="comment" class="form-control"></textarea>
                     <br>
                     <button type="submit" name="submit" class="btn btn-primary">{{ trans('buttons.general.crud.create') }}</button>
                 </form>
-                <!--script add comments -->
-                <script>
-                    $(document).ready(function(){
-                        $("body").on("submit","form[name=comments]",function(e){
-                            e.preventDefault();
-                            var comment=$("textarea[name=comment]").val();
-                            if(comment.length<1){
-                                $("textarea[name=comment]").focus();
-                            }else{
-                                $("button[name=submit]").button("loading");
-                                $.ajax({
-                                    type:"post",
-                                    url:"{{route('frontend.addcomment.post')}}",
-                                    data:{
-                                        _token:"{{csrf_token()}}",
-                                        comment:comment,
-                                        id:"{{$post->id}}"
-                                    },
-                                    success:function(data){
-                                        $("textarea[name=comment]").val("");
-                                        $("button[name=submit]").button("reset");
-                                        alert('comentariul tau va fi aprobat de administrator');
-                                    },
-                                    error:function(){
-                                        $("button[name=submit]").button("reset");
-                                    }
-                                });
-                            }
-                        });
-                    });
-                </script>
             @endif
-            <ul id="comment_list">
+            <ul id="comment-list">
                 @if(!empty($comments) && count($comments)>0)
                     @foreach($comments as $comment)
                         <li>

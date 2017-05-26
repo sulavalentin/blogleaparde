@@ -44,10 +44,11 @@
                 @yield('content')
             </div><!-- container -->
         </div><!--#app-->
-
         <!-- Scripts -->
+        {!! Html::script('js/myjsfrontend.js') !!}
         @yield('before-scripts')
         {!! Html::script(mix('js/frontend.js')) !!}
+        
         @yield('after-scripts')
 
         @include('includes.partials.ga')
